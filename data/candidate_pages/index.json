@@ -1,0 +1,146 @@
+[
+  {
+    "candidate_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+    "title": "Enterprise Employee Leave and Statutory Absence Policy 2024",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Updated annual leave schedule, statutory sick pay calculation, parental absence, and HR personnel portal guidelines.",
+    "content_text": "Enterprise Employee Leave and Statutory Absence Policy 2024. All full-time employees are entitled to 25 days paid annual leave. The updated statutory sick leave schedule is administered via the personnel portal. Family and medical leave requests must be logged through the employee self-service system. Unpaid sabbaticals require department head and VP endorsement. Floating holidays must be taken within the current calendar year.",
+    "keywords": ["leave", "sick", "annual", "statutory", "schedule", "entitlements", "absence", "personnel", "sabbatical"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+    "title": "HR Benefits and Sabbatical Leave Administration System",
+    "domain": "intranet.corp",
+    "source": "CORP_SITEMAP",
+    "snippet": "Modernized sabbatical submission portal and digital leave tracking for corporate staff.",
+    "content_text": "HR Benefits and Sabbatical Leave Administration System. Replaces legacy leave-system-v1. Applications for extended leave and professional development sabbaticals are submitted digitally. Includes vacation calculator, public holiday calendars, and timesheet synchronization with automated manager sign-off.",
+    "keywords": ["sabbatical", "benefits", "leave", "application", "portal", "timesheet", "calculator", "holiday"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+    "title": "Corporate Code of Conduct, Workplace Ethics, and Whistleblower Hotline",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Official Code of Conduct, anti-harassment standards, conflicts of interest disclosures, and confidential integrity hotline.",
+    "content_text": "Corporate Code of Conduct and Workplace Ethics Charter. Our enterprise strictly enforces zero tolerance for harassment and discrimination. Conflicts of interest must be disclosed annually. The confidential Integrity Line and Ombudsperson directory provides secure anonymous reporting. Gift acceptance thresholds are capped at $100.",
+    "keywords": ["ethics", "conduct", "harassment", "whistleblower", "integrity", "conflict", "disclosure", "ombudsperson"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+    "title": "Conflict of Interest Annual Declaration and Gift Registry",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Digital conflict declaration form and board approval workflow for secondary commercial activities.",
+    "content_text": "Conflict of Interest Annual Declaration Form. Employees engaged in outside consultancies, equity ownership, or board roles must register their commitments. Form submission routes automatically to Legal Compliance and the Ethics Advisory Committee.",
+    "keywords": ["conflict", "interest", "disclosure", "declaration", "gifts", "register", "approval", "compliance"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/security/identity-and-access-management-standard.html",
+    "title": "Enterprise Information Security: Multi-Factor Authentication and Access Control",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Hardware FIDO2 keys, biometric verification, MFA enrollment portal, and Active Directory credentials.",
+    "content_text": "Enterprise Information Security and Access Control Standard. Mandates multi-factor authentication (MFA) across all identity providers. Staff must enroll hardware security keys or authenticator apps via the Identity Help Desk portal. Complies with NIST SP 800-63B standards for password rotation and credential hygiene.",
+    "keywords": ["mfa", "authentication", "fido2", "security", "access", "control", "identity", "helpdesk", "password", "nist"]
+  },
+  {
+    "candidate_url": "https://pages.nist.gov/800-63-3/sp800-63b.html",
+    "title": "NIST Special Publication 800-63B: Digital Identity Guidelines - Authentication and Lifecycle",
+    "domain": "pages.nist.gov",
+    "source": "PUBLIC_STANDARD",
+    "snippet": "National Institute of Standards and Technology guidelines for memorized secrets, cryptographic tokens, and biometric verifiers.",
+    "content_text": "NIST SP 800-63B establishes technical requirements for digital identity assurance, authenticator binding, credential rotation, and session management. Recommends against arbitrary periodic password changes without compromise indicators.",
+    "keywords": ["nist", "800-63b", "password", "authentication", "identity", "digital", "security", "guidelines"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/security/data-classification-and-encryption-guide.html",
+    "title": "Enterprise Data Classification Matrix and Customer PII Protection Protocol",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Data classification guidelines for Public, Internal, Confidential, and Restricted PII assets.",
+    "content_text": "Enterprise Data Classification Matrix and Encryption Guidelines. Restricts customer PII and intellectual property. High-risk assets must be encrypted at rest using AES-256 and transmitted under TLS 1.3. Integrates DLP scanning agents and cloud storage bucket access controls.",
+    "keywords": ["classification", "matrix", "confidential", "pii", "encryption", "dlp", "security", "customer"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/finance/travel-and-expense-reimbursement-handbook.html",
+    "title": "Corporate Travel, Lodging, and Expense Reimbursement Policy",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "GSA per diem standards, Concur Travel bookings, itemized meal receipts, and finance reimbursement voucher procedures.",
+    "content_text": "Corporate Travel and Entertainment Expense Policy. Business travel requires advance booking on Concur. Per diem rates align with GSA domestic benchmarks. Itemized receipts are required for expenditures exceeding $25. Digital vouchers are processed through the Finance portal within 30 days of trip conclusion.",
+    "keywords": ["travel", "expense", "per diem", "concur", "reimbursement", "voucher", "receipts", "lodging", "finance"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/finance/corporate-credit-card-management.html",
+    "title": "Corporate Credit Card Policy and Monthly Reconciliation Portal",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "American Express cardholder obligations, dispute procedures, and reconciliation gateway.",
+    "content_text": "Corporate Credit Card Policy. Cardholders must reconcile monthly statements within 10 business days through the Finance Card Reconciliation Gateway. Personal expenses on corporate accounts are strictly prohibited. Application forms require managerial endorsement.",
+    "keywords": ["corporate", "card", "amex", "reconciliation", "gateway", "statements", "finance", "expense"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/compliance/anti-bribery-and-fcpa-handbook.html",
+    "title": "Global Anti-Corruption, FCPA Enforcement, and Third-Party Due Diligence Manual",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Foreign Corrupt Practices Act compliance, vendor background checks, and international partner risk assessment.",
+    "content_text": "Global Anti-Corruption and FCPA Policy Manual. Forbids facilitating payments and commercial bribery. All international business intermediaries must undergo compliance due diligence screening via the Compliance Radar portal prior to contract execution.",
+    "keywords": ["fcpa", "bribery", "corruption", "compliance", "radar", "due diligence", "third-party", "sanctions"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/compliance/gdpr-and-cross-border-transfers.html",
+    "title": "GDPR Compliance, Standard Contractual Clauses, and Data Protection Officer Contacts",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "European Union GDPR compliance standards, updated 2024 SCC templates, and Data Protection Officer registry.",
+    "content_text": "GDPR and International Data Transfers Standard. Governs transmission of personal data outside the EEA. Mandates adoption of updated European Commission Standard Contractual Clauses (SCCs). Directory of internal DPOs and supervisory authority notification protocols.",
+    "keywords": ["gdpr", "scc", "data protection", "transfers", "dpo", "european", "compliance", "privacy"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/engineering/developer-workstation-onboarding.html",
+    "title": "Software Engineering Developer Environment Setup and Toolchain Guide",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Python 3.11+, Node.js LTS, Docker Desktop licenses, Git commit signing, and local Kubernetes sandboxes.",
+    "content_text": "Software Engineering Developer Environment Setup Guide. Step-by-step instructions for provisioning local development machines. Covers Python virtual environments, Node.js package management, Git GPG commit verification, Docker Desktop licenses from Developer Hub, and Minikube local clusters.",
+    "keywords": ["developer", "python", "node", "docker", "git", "setup", "environment", "kubernetes", "tooling"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/engineering/cloud-disaster-recovery-runbook.html",
+    "title": "Cloud Infrastructure Resilience, Multi-AZ Failover, and Disaster Recovery Runbook",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Target RTO and RPO benchmarks, automated PostgreSQL cross-region replication, and Route53 DNS health checks.",
+    "content_text": "Cloud Infrastructure Resilience and Disaster Recovery Runbook. Establishes RTO of 1 hour and RPO of 15 minutes. Details automated database snapshot restoration, multi-AZ Kubernetes failover, global traffic redirection with Cloudflare, and on-call escalation schedules.",
+    "keywords": ["disaster", "recovery", "rto", "rpo", "infrastructure", "failover", "database", "replication", "dns"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/procurement/vendor-sourcing-and-msa-guidelines.html",
+    "title": "Corporate Procurement, Master Services Agreements, and Supplier Evaluation",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Vendor risk screening, Coupa supplier registration, delegation of authority thresholds, and MSA contract templates.",
+    "content_text": "Corporate Procurement and Vendor Sourcing Guidelines. Requires SOC2 verification for technology suppliers exceeding $50k spend. Vendor registration is managed through Coupa. Standard MSA contracts and mutual NDA templates are hosted on the Legal Knowledge Base.",
+    "keywords": ["procurement", "vendor", "coupa", "msa", "supplier", "contract", "legal", "template", "nda"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/facilities/remote-work-and-ergonomics-policy.html",
+    "title": "Enterprise Telecommuting, Home Office Ergonomics, and Stipend Policy",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "Annual $500 home office equipment stipend, OSHA ergonomic guidelines, and WireGuard corporate VPN.",
+    "content_text": "Enterprise Remote Work and Ergonomics Policy. Eligible employees receive an annual $500 workstation stipend reimbursed via Expensify. Review OSHA ergonomic guidelines for display and chair adjustments. Telecommuting staff must connect via corporate WireGuard VPN.",
+    "keywords": ["remote", "telecommuting", "ergonomics", "stipend", "osha", "vpn", "wireguard", "home office"]
+  },
+  {
+    "candidate_url": "https://intranet.corp/security/incident-response-and-continuity-playbook.html",
+    "title": "Cybersecurity Incident Response, Forensic Investigation, and Continuity Playbook",
+    "domain": "intranet.corp",
+    "source": "LOCAL_INTRANET",
+    "snippet": "SEV-1 severity triage, forensic evidence preservation, SANS handbook protocols, and post-mortem retrospective standards.",
+    "content_text": "Cybersecurity Incident Response Playbook. Outlines containment, eradication, and forensic logging for security breaches. Establishes secure communication bridges, evidence retention in the Forensic Vault, and 72-hour blameless retrospective reporting.",
+    "keywords": ["incident", "response", "forensic", "security", "continuity", "playbook", "containment", "retrospective"]
+  }
+]

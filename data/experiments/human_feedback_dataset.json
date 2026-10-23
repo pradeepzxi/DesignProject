@@ -1,0 +1,102 @@
+[
+  {
+    "review_id": "960d476c-2334-4f93-b476-cfdd7cf1d43e",
+    "timestamp": "2026-09-24T17:36:58.034608+00:00",
+    "link_id": "26010430-8469-42a1-93fc-c3af7ffcb427",
+    "broken_url": "https://broken.corp/tool",
+    "anchor_text": "",
+    "section_heading": "",
+    "candidate_url": null,
+    "predicted_score": 0.78,
+    "feature_scores": {
+      "semantic_similarity": null,
+      "title_similarity": null,
+      "url_similarity": null,
+      "keyword_overlap": null,
+      "domain_score": null
+    },
+    "human_decision": "REJECT",
+    "reviewer": "HUMAN_OPERATOR",
+    "reviewer_comment": "Incorrect candidate domain"
+  },
+  {
+    "review_id": "56719c05-750c-4762-9e16-14b22da533db",
+    "timestamp": "2026-09-24T17:39:56.239360+00:00",
+    "link_id": "f06866c3-007c-447f-89c1-00515f17e497",
+    "broken_url": "https://broken.corp/tool",
+    "anchor_text": "",
+    "section_heading": "",
+    "candidate_url": null,
+    "predicted_score": 0.78,
+    "feature_scores": {
+      "semantic_similarity": null,
+      "title_similarity": null,
+      "url_similarity": null,
+      "keyword_overlap": null,
+      "domain_score": null
+    },
+    "human_decision": "REJECT",
+    "reviewer": "HUMAN_OPERATOR",
+    "reviewer_comment": "Incorrect candidate domain"
+  },
+  {
+    "review_id": "e33c28f1-6ac6-41a6-bc4f-3280f672d00f",
+    "timestamp": "2026-09-24T17:40:57.467846+00:00",
+    "link_id": "47a39c6d-3cf3-4b6b-b89b-49d606d952d4",
+    "broken_url": "https://broken.corp/tool",
+    "anchor_text": "",
+    "section_heading": "",
+    "candidate_url": null,
+    "predicted_score": 0.78,
+    "feature_scores": {
+      "semantic_similarity": null,
+      "title_similarity": null,
+      "url_similarity": null,
+      "keyword_overlap": null,
+      "domain_score": null
+    },
+    "human_decision": "REJECT",
+    "reviewer": "HUMAN_OPERATOR",
+    "reviewer_comment": "Incorrect candidate domain"
+  },
+  {
+    "review_id": "42b35ad5-59f2-4d2c-813b-e409b07c242d",
+    "timestamp": "2026-09-24T17:42:15.344812+00:00",
+    "link_id": "2690f353-6827-4e83-87b6-13eeb489cdcb",
+    "broken_url": "https://broken.corp/tool",
+    "anchor_text": "",
+    "section_heading": "",
+    "candidate_url": null,
+    "predicted_score": 0.78,
+    "feature_scores": {
+      "semantic_similarity": null,
+      "title_similarity": null,
+      "url_similarity": null,
+      "keyword_overlap": null,
+      "domain_score": null
+    },
+    "human_decision": "REJECT",
+    "reviewer": "HUMAN_OPERATOR",
+    "reviewer_comment": "Incorrect candidate domain"
+  },
+  {
+    "review_id": "a96c08c1-898d-463d-bd2f-3c02a8dd1be1",
+    "timestamp": "2026-09-24T17:53:10.082268+00:00",
+    "link_id": "3353c669-b0b2-4d59-9d95-9675d2c78dac",
+    "broken_url": "https://broken.corp/tool",
+    "anchor_text": "",
+    "section_heading": "",
+    "candidate_url": null,
+    "predicted_score": 0.78,
+    "feature_scores": {
+      "semantic_similarity": null,
+      "title_similarity": null,
+      "url_similarity": null,
+      "keyword_overlap": null,
+      "domain_score": null
+    },
+    "human_decision": "REJECT",
+    "reviewer": "HUMAN_OPERATOR",
+    "reviewer_comment": "Incorrect candidate domain"
+  }
+]

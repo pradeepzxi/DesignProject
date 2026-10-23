@@ -1,0 +1,52 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: link_integrity_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - DEBUG=False
+      - APP_NAME=Intelligent Link Integrity Management Framework
+      - API_V1_PREFIX=/api
+      - DATABASE_URL=sqlite:////app/data/link_integrity.db
+      - DATA_DIR=/app/data
+      - DOCUMENTS_DIR=/app/data/documents
+      - CANDIDATE_PAGES_DIR=/app/data/candidate_pages
+      - EXPERIMENTS_DIR=/app/data/experiments
+      - VALIDATION_TIMEOUT_SECONDS=10.0
+      - VALIDATION_MAX_RETRIES=2
+      - VALIDATION_BACKOFF_FACTOR=1.5
+      - VALIDATION_MAX_CONCURRENCY=10
+      - VALIDATION_RATE_LIMIT_PER_DOMAIN=3
+      - VALIDATION_CACHE_TTL_SECONDS=3600
+      - SSRF_PROTECTION_ENABLED=True
+      - CORS_ORIGINS=http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: link_integrity_frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000/api
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+networks:
+  default:
+    name: link_integrity_network

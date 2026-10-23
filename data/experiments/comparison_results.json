@@ -1,0 +1,1177 @@
+{
+  "timestamp": "2026-09-24T17:20:45.268745+00:00",
+  "comparison_table": [
+    {
+      "method": "Baseline A (URL Only)",
+      "precision": 0.975,
+      "recall": 0.99,
+      "f1": 0.982,
+      "top1": 0.3667,
+      "top3": 0.75,
+      "mrr": 0.5633,
+      "repair_precision": 0.0,
+      "repair_rate": 0.0
+    },
+    {
+      "method": "Baseline B (Lexical/Context)",
+      "precision": 0.975,
+      "recall": 0.99,
+      "f1": 0.982,
+      "top1": 0.6333,
+      "top3": 0.8,
+      "mrr": 0.7358,
+      "repair_precision": 0.0,
+      "repair_rate": 0.0
+    },
+    {
+      "method": "Experiment C (Semantic Only)",
+      "precision": 0.975,
+      "recall": 0.99,
+      "f1": 0.982,
+      "top1": 0.7167,
+      "top3": 0.8833,
+      "mrr": 0.8083,
+      "repair_precision": 0.0,
+      "repair_rate": 0.0
+    },
+    {
+      "method": "Proposed Method (Hybrid Multi-Factor)",
+      "precision": 0.975,
+      "recall": 0.99,
+      "f1": 0.982,
+      "top1": 0.6833,
+      "top3": 0.85,
+      "mrr": 0.7706,
+      "repair_precision": 0.0,
+      "repair_rate": 0.0
+    },
+    {
+      "method": "Experiment E (Hybrid + Autonomous Remediation)",
+      "precision": 0.975,
+      "recall": 0.99,
+      "f1": 0.982,
+      "top1": 0.6833,
+      "top3": 0.85,
+      "mrr": 0.7706,
+      "repair_precision": 0.0,
+      "repair_rate": 0.0
+    }
+  ],
+  "runs": {
+    "baseline_url": {
+      "method": "BASELINE_URL",
+      "dataset_version": "v1.0",
+      "total_test_cases": 60,
+      "detection_metrics": {
+        "accuracy": 0.983,
+        "precision": 0.975,
+        "recall": 0.99,
+        "f1": 0.982
+      },
+      "retrieval_metrics": {
+        "top1_accuracy": 0.3667,
+        "top3_accuracy": 0.75,
+        "mrr": 0.5633
+      },
+      "remediation_metrics": {
+        "auto_repair_precision": 0.0,
+        "auto_repair_rate": 0.0,
+        "false_repair_rate": 0.0,
+        "human_review_rate": 0.9667,
+        "repairs_attempted": 0,
+        "repairs_verified": 0
+      },
+      "efficiency": {
+        "avg_case_latency_ms": 2.57,
+        "total_execution_seconds": 0.15,
+        "throughput_links_per_min": 23288.7
+      },
+      "confidence_calibration": [
+        {
+          "confidence_range": "0.00-0.49",
+          "total_cases": 60,
+          "correct_recommendations": 22,
+          "accuracy_percentage": 36.7
+        },
+        {
+          "confidence_range": "0.50-0.64",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.65-0.79",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.80-0.89",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.90-1.00",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        }
+      ],
+      "failure_type_breakdown": {
+        "BROKEN_404": {
+          "total": 34,
+          "top1": 18,
+          "auto_correct": 0
+        },
+        "TIMEOUT": {
+          "total": 3,
+          "top1": 0,
+          "auto_correct": 0
+        },
+        "BROKEN_4XX": {
+          "total": 3,
+          "top1": 1,
+          "auto_correct": 0
+        },
+        "DNS_ERROR": {
+          "total": 9,
+          "top1": 0,
+          "auto_correct": 0
+        },
+        "SERVER_ERROR_5XX": {
+          "total": 7,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "FORBIDDEN": {
+          "total": 2,
+          "top1": 1,
+          "auto_correct": 0
+        },
+        "UNAUTHORIZED": {
+          "total": 1,
+          "top1": 0,
+          "auto_correct": 0
+        },
+        "CONNECTION_ERROR": {
+          "total": 1,
+          "top1": 0,
+          "auto_correct": 0
+        }
+      },
+      "weights_used": {
+        "semantic_similarity": 0.0,
+        "title_similarity": 0.0,
+        "url_similarity": 1.0,
+        "keyword_overlap": 0.0,
+        "domain_score": 0.0,
+        "content_quality_score": 0.0
+      },
+      "predictions_sample": [
+        {
+          "case_id": "CASE_HR_01",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.0526,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 6.0
+        },
+        {
+          "case_id": "CASE_HR_02",
+          "broken_url": "https://example.com/archived/hr/leave-system-v1.php",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "confidence": 0.3484,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 3.55
+        },
+        {
+          "case_id": "CASE_HR_03",
+          "broken_url": "https://httpbin.org/delay/15",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "confidence": 0.06,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 2.02
+        },
+        {
+          "case_id": "CASE_HR_04",
+          "broken_url": "https://httpbin.org/status/410",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.0526,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 1.86
+        },
+        {
+          "case_id": "CASE_HR_05",
+          "broken_url": "https://obsolete-hr-portal-1999.corp.net/deprecated",
+          "ground_truth": null,
+          "predicted_url": "https://intranet.corp/finance/corporate-credit-card-management.html",
+          "confidence": 0.0842,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 2.91
+        },
+        {
+          "case_id": "CASE_ETH_01",
+          "broken_url": "https://example.com/ethics/whistleblower-v2019.aspx",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.2701,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 3.73
+        },
+        {
+          "case_id": "CASE_ETH_02",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.0526,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 2.17
+        },
+        {
+          "case_id": "CASE_ETH_03",
+          "broken_url": "https://httpbin.org/status/500",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.0526,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 3.69
+        },
+        {
+          "case_id": "CASE_ETH_04",
+          "broken_url": "https://invalid-non-existent-subdomain-4092.corp.local/board",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.0577,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 2.64
+        },
+        {
+          "case_id": "CASE_ETH_05",
+          "broken_url": "https://example.com/forms/internal/grievance-2021.doc",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/security/identity-and-access-management-standard.html",
+          "confidence": 0.0955,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 2.57
+        }
+      ]
+    },
+    "baseline_lexical": {
+      "method": "BASELINE_LEXICAL",
+      "dataset_version": "v1.0",
+      "total_test_cases": 60,
+      "detection_metrics": {
+        "accuracy": 0.983,
+        "precision": 0.975,
+        "recall": 0.99,
+        "f1": 0.982
+      },
+      "retrieval_metrics": {
+        "top1_accuracy": 0.6333,
+        "top3_accuracy": 0.8,
+        "mrr": 0.7358
+      },
+      "remediation_metrics": {
+        "auto_repair_precision": 0.0,
+        "auto_repair_rate": 0.0,
+        "false_repair_rate": 0.0,
+        "human_review_rate": 1.0,
+        "repairs_attempted": 0,
+        "repairs_verified": 0
+      },
+      "efficiency": {
+        "avg_case_latency_ms": 2.56,
+        "total_execution_seconds": 0.15,
+        "throughput_links_per_min": 23417.7
+      },
+      "confidence_calibration": [
+        {
+          "confidence_range": "0.00-0.49",
+          "total_cases": 56,
+          "correct_recommendations": 34,
+          "accuracy_percentage": 60.7
+        },
+        {
+          "confidence_range": "0.50-0.64",
+          "total_cases": 3,
+          "correct_recommendations": 3,
+          "accuracy_percentage": 100.0
+        },
+        {
+          "confidence_range": "0.65-0.79",
+          "total_cases": 1,
+          "correct_recommendations": 1,
+          "accuracy_percentage": 100.0
+        },
+        {
+          "confidence_range": "0.80-0.89",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.90-1.00",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        }
+      ],
+      "failure_type_breakdown": {
+        "BROKEN_404": {
+          "total": 34,
+          "top1": 24,
+          "auto_correct": 0
+        },
+        "TIMEOUT": {
+          "total": 3,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "BROKEN_4XX": {
+          "total": 3,
+          "top1": 3,
+          "auto_correct": 0
+        },
+        "DNS_ERROR": {
+          "total": 9,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "SERVER_ERROR_5XX": {
+          "total": 7,
+          "top1": 4,
+          "auto_correct": 0
+        },
+        "FORBIDDEN": {
+          "total": 2,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "UNAUTHORIZED": {
+          "total": 1,
+          "top1": 0,
+          "auto_correct": 0
+        },
+        "CONNECTION_ERROR": {
+          "total": 1,
+          "top1": 1,
+          "auto_correct": 0
+        }
+      },
+      "weights_used": {
+        "semantic_similarity": 0.0,
+        "title_similarity": 0.35,
+        "url_similarity": 0.35,
+        "keyword_overlap": 0.3,
+        "domain_score": 0.0,
+        "content_quality_score": 0.0
+      },
+      "predictions_sample": [
+        {
+          "case_id": "CASE_HR_01",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.4934,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.76
+        },
+        {
+          "case_id": "CASE_HR_02",
+          "broken_url": "https://example.com/archived/hr/leave-system-v1.php",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.3416,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 2.08
+        },
+        {
+          "case_id": "CASE_HR_03",
+          "broken_url": "https://httpbin.org/delay/15",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.2758,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.75
+        },
+        {
+          "case_id": "CASE_HR_04",
+          "broken_url": "https://httpbin.org/status/410",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "confidence": 0.2662,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.56
+        },
+        {
+          "case_id": "CASE_HR_05",
+          "broken_url": "https://obsolete-hr-portal-1999.corp.net/deprecated",
+          "ground_truth": null,
+          "predicted_url": "https://intranet.corp/finance/corporate-credit-card-management.html",
+          "confidence": 0.2461,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 1.53
+        },
+        {
+          "case_id": "CASE_ETH_01",
+          "broken_url": "https://example.com/ethics/whistleblower-v2019.aspx",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.4779,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.48
+        },
+        {
+          "case_id": "CASE_ETH_02",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "confidence": 0.3298,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.91
+        },
+        {
+          "case_id": "CASE_ETH_03",
+          "broken_url": "https://httpbin.org/status/500",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.3328,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.49
+        },
+        {
+          "case_id": "CASE_ETH_04",
+          "broken_url": "https://invalid-non-existent-subdomain-4092.corp.local/board",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "confidence": 0.2233,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 3.39
+        },
+        {
+          "case_id": "CASE_ETH_05",
+          "broken_url": "https://example.com/forms/internal/grievance-2021.doc",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/security/identity-and-access-management-standard.html",
+          "confidence": 0.3145,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 3.05
+        }
+      ]
+    },
+    "semantic_only": {
+      "method": "SEMANTIC_ONLY",
+      "dataset_version": "v1.0",
+      "total_test_cases": 60,
+      "detection_metrics": {
+        "accuracy": 0.983,
+        "precision": 0.975,
+        "recall": 0.99,
+        "f1": 0.982
+      },
+      "retrieval_metrics": {
+        "top1_accuracy": 0.7167,
+        "top3_accuracy": 0.8833,
+        "mrr": 0.8083
+      },
+      "remediation_metrics": {
+        "auto_repair_precision": 0.0,
+        "auto_repair_rate": 0.0,
+        "false_repair_rate": 0.0,
+        "human_review_rate": 1.0,
+        "repairs_attempted": 0,
+        "repairs_verified": 0
+      },
+      "efficiency": {
+        "avg_case_latency_ms": 2.33,
+        "total_execution_seconds": 0.14,
+        "throughput_links_per_min": 25699.0
+      },
+      "confidence_calibration": [
+        {
+          "confidence_range": "0.00-0.49",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.50-0.64",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.65-0.79",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.80-0.89",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.90-1.00",
+          "total_cases": 60,
+          "correct_recommendations": 43,
+          "accuracy_percentage": 71.7
+        }
+      ],
+      "failure_type_breakdown": {
+        "BROKEN_404": {
+          "total": 34,
+          "top1": 27,
+          "auto_correct": 0
+        },
+        "TIMEOUT": {
+          "total": 3,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "BROKEN_4XX": {
+          "total": 3,
+          "top1": 3,
+          "auto_correct": 0
+        },
+        "DNS_ERROR": {
+          "total": 9,
+          "top1": 1,
+          "auto_correct": 0
+        },
+        "SERVER_ERROR_5XX": {
+          "total": 7,
+          "top1": 6,
+          "auto_correct": 0
+        },
+        "FORBIDDEN": {
+          "total": 2,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "UNAUTHORIZED": {
+          "total": 1,
+          "top1": 1,
+          "auto_correct": 0
+        },
+        "CONNECTION_ERROR": {
+          "total": 1,
+          "top1": 1,
+          "auto_correct": 0
+        }
+      },
+      "weights_used": {
+        "semantic_similarity": 1.0,
+        "title_similarity": 0.0,
+        "url_similarity": 0.0,
+        "keyword_overlap": 0.0,
+        "domain_score": 0.0,
+        "content_quality_score": 0.0
+      },
+      "predictions_sample": [
+        {
+          "case_id": "CASE_HR_01",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.9968,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.94
+        },
+        {
+          "case_id": "CASE_HR_02",
+          "broken_url": "https://example.com/archived/hr/leave-system-v1.php",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.9896,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 2.9
+        },
+        {
+          "case_id": "CASE_HR_03",
+          "broken_url": "https://httpbin.org/delay/15",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.9762,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 3.18
+        },
+        {
+          "case_id": "CASE_HR_04",
+          "broken_url": "https://httpbin.org/status/410",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "confidence": 0.9718,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.1
+        },
+        {
+          "case_id": "CASE_HR_05",
+          "broken_url": "https://obsolete-hr-portal-1999.corp.net/deprecated",
+          "ground_truth": null,
+          "predicted_url": "https://intranet.corp/finance/travel-and-expense-reimbursement-handbook.html",
+          "confidence": 0.9661,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 1.87
+        },
+        {
+          "case_id": "CASE_ETH_01",
+          "broken_url": "https://example.com/ethics/whistleblower-v2019.aspx",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.9827,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.05
+        },
+        {
+          "case_id": "CASE_ETH_02",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.9728,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 1.92
+        },
+        {
+          "case_id": "CASE_ETH_03",
+          "broken_url": "https://httpbin.org/status/500",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.9812,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.77
+        },
+        {
+          "case_id": "CASE_ETH_04",
+          "broken_url": "https://invalid-non-existent-subdomain-4092.corp.local/board",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.9716,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 2.88
+        },
+        {
+          "case_id": "CASE_ETH_05",
+          "broken_url": "https://example.com/forms/internal/grievance-2021.doc",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.955,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.59
+        }
+      ]
+    },
+    "proposed_hybrid": {
+      "method": "PROPOSED_HYBRID",
+      "dataset_version": "v1.0",
+      "total_test_cases": 60,
+      "detection_metrics": {
+        "accuracy": 0.983,
+        "precision": 0.975,
+        "recall": 0.99,
+        "f1": 0.982
+      },
+      "retrieval_metrics": {
+        "top1_accuracy": 0.6833,
+        "top3_accuracy": 0.85,
+        "mrr": 0.7706
+      },
+      "remediation_metrics": {
+        "auto_repair_precision": 0.0,
+        "auto_repair_rate": 0.0,
+        "false_repair_rate": 0.0,
+        "human_review_rate": 1.0,
+        "repairs_attempted": 0,
+        "repairs_verified": 0
+      },
+      "efficiency": {
+        "avg_case_latency_ms": 1.87,
+        "total_execution_seconds": 0.11,
+        "throughput_links_per_min": 32024.0
+      },
+      "confidence_calibration": [
+        {
+          "confidence_range": "0.00-0.49",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.50-0.64",
+          "total_cases": 41,
+          "correct_recommendations": 24,
+          "accuracy_percentage": 58.5
+        },
+        {
+          "confidence_range": "0.65-0.79",
+          "total_cases": 18,
+          "correct_recommendations": 16,
+          "accuracy_percentage": 88.9
+        },
+        {
+          "confidence_range": "0.80-0.89",
+          "total_cases": 1,
+          "correct_recommendations": 1,
+          "accuracy_percentage": 100.0
+        },
+        {
+          "confidence_range": "0.90-1.00",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        }
+      ],
+      "failure_type_breakdown": {
+        "BROKEN_404": {
+          "total": 34,
+          "top1": 25,
+          "auto_correct": 0
+        },
+        "TIMEOUT": {
+          "total": 3,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "BROKEN_4XX": {
+          "total": 3,
+          "top1": 3,
+          "auto_correct": 0
+        },
+        "DNS_ERROR": {
+          "total": 9,
+          "top1": 3,
+          "auto_correct": 0
+        },
+        "SERVER_ERROR_5XX": {
+          "total": 7,
+          "top1": 5,
+          "auto_correct": 0
+        },
+        "FORBIDDEN": {
+          "total": 2,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "UNAUTHORIZED": {
+          "total": 1,
+          "top1": 0,
+          "auto_correct": 0
+        },
+        "CONNECTION_ERROR": {
+          "total": 1,
+          "top1": 1,
+          "auto_correct": 0
+        }
+      },
+      "weights_used": {
+        "semantic_similarity": 0.4,
+        "title_similarity": 0.2,
+        "url_similarity": 0.15,
+        "keyword_overlap": 0.1,
+        "domain_score": 0.1,
+        "content_quality_score": 0.05
+      },
+      "predictions_sample": [
+        {
+          "case_id": "CASE_HR_01",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.7116,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.45
+        },
+        {
+          "case_id": "CASE_HR_02",
+          "broken_url": "https://example.com/archived/hr/leave-system-v1.php",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.6556,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 3.27
+        },
+        {
+          "case_id": "CASE_HR_03",
+          "broken_url": "https://httpbin.org/delay/15",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.6152,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.99
+        },
+        {
+          "case_id": "CASE_HR_04",
+          "broken_url": "https://httpbin.org/status/410",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "confidence": 0.6078,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.43
+        },
+        {
+          "case_id": "CASE_HR_05",
+          "broken_url": "https://obsolete-hr-portal-1999.corp.net/deprecated",
+          "ground_truth": null,
+          "predicted_url": "https://intranet.corp/finance/corporate-credit-card-management.html",
+          "confidence": 0.5998,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 2.07
+        },
+        {
+          "case_id": "CASE_ETH_01",
+          "broken_url": "https://example.com/ethics/whistleblower-v2019.aspx",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.6862,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.88
+        },
+        {
+          "case_id": "CASE_ETH_02",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "confidence": 0.633,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.49
+        },
+        {
+          "case_id": "CASE_ETH_03",
+          "broken_url": "https://httpbin.org/status/500",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.638,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.92
+        },
+        {
+          "case_id": "CASE_ETH_04",
+          "broken_url": "https://invalid-non-existent-subdomain-4092.corp.local/board",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "confidence": 0.5906,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.61
+        },
+        {
+          "case_id": "CASE_ETH_05",
+          "broken_url": "https://example.com/forms/internal/grievance-2021.doc",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/security/identity-and-access-management-standard.html",
+          "confidence": 0.6017,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 2.21
+        }
+      ]
+    },
+    "hybrid_remediation": {
+      "method": "HYBRID_REMEDIATION",
+      "dataset_version": "v1.0",
+      "total_test_cases": 60,
+      "detection_metrics": {
+        "accuracy": 0.983,
+        "precision": 0.975,
+        "recall": 0.99,
+        "f1": 0.982
+      },
+      "retrieval_metrics": {
+        "top1_accuracy": 0.6833,
+        "top3_accuracy": 0.85,
+        "mrr": 0.7706
+      },
+      "remediation_metrics": {
+        "auto_repair_precision": 0.0,
+        "auto_repair_rate": 0.0,
+        "false_repair_rate": 0.0,
+        "human_review_rate": 1.0,
+        "repairs_attempted": 0,
+        "repairs_verified": 0
+      },
+      "efficiency": {
+        "avg_case_latency_ms": 1.78,
+        "total_execution_seconds": 0.11,
+        "throughput_links_per_min": 33696.5
+      },
+      "confidence_calibration": [
+        {
+          "confidence_range": "0.00-0.49",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        },
+        {
+          "confidence_range": "0.50-0.64",
+          "total_cases": 41,
+          "correct_recommendations": 24,
+          "accuracy_percentage": 58.5
+        },
+        {
+          "confidence_range": "0.65-0.79",
+          "total_cases": 18,
+          "correct_recommendations": 16,
+          "accuracy_percentage": 88.9
+        },
+        {
+          "confidence_range": "0.80-0.89",
+          "total_cases": 1,
+          "correct_recommendations": 1,
+          "accuracy_percentage": 100.0
+        },
+        {
+          "confidence_range": "0.90-1.00",
+          "total_cases": 0,
+          "correct_recommendations": 0,
+          "accuracy_percentage": 0.0
+        }
+      ],
+      "failure_type_breakdown": {
+        "BROKEN_404": {
+          "total": 34,
+          "top1": 25,
+          "auto_correct": 0
+        },
+        "TIMEOUT": {
+          "total": 3,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "BROKEN_4XX": {
+          "total": 3,
+          "top1": 3,
+          "auto_correct": 0
+        },
+        "DNS_ERROR": {
+          "total": 9,
+          "top1": 3,
+          "auto_correct": 0
+        },
+        "SERVER_ERROR_5XX": {
+          "total": 7,
+          "top1": 5,
+          "auto_correct": 0
+        },
+        "FORBIDDEN": {
+          "total": 2,
+          "top1": 2,
+          "auto_correct": 0
+        },
+        "UNAUTHORIZED": {
+          "total": 1,
+          "top1": 0,
+          "auto_correct": 0
+        },
+        "CONNECTION_ERROR": {
+          "total": 1,
+          "top1": 1,
+          "auto_correct": 0
+        }
+      },
+      "weights_used": {
+        "semantic_similarity": 0.4,
+        "title_similarity": 0.2,
+        "url_similarity": 0.15,
+        "keyword_overlap": 0.1,
+        "domain_score": 0.1,
+        "content_quality_score": 0.05
+      },
+      "predictions_sample": [
+        {
+          "case_id": "CASE_HR_01",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.7116,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 3.01
+        },
+        {
+          "case_id": "CASE_HR_02",
+          "broken_url": "https://example.com/archived/hr/leave-system-v1.php",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.6556,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": true,
+          "latency_ms": 3.0
+        },
+        {
+          "case_id": "CASE_HR_03",
+          "broken_url": "https://httpbin.org/delay/15",
+          "ground_truth": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "predicted_url": "https://intranet.corp/hr/leave/2024-leave-and-absence-standard.html",
+          "confidence": 0.6152,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.89
+        },
+        {
+          "case_id": "CASE_HR_04",
+          "broken_url": "https://httpbin.org/status/410",
+          "ground_truth": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "predicted_url": "https://intranet.corp/hr/benefits/modern-leave-management.html",
+          "confidence": 0.6078,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 2.06
+        },
+        {
+          "case_id": "CASE_HR_05",
+          "broken_url": "https://obsolete-hr-portal-1999.corp.net/deprecated",
+          "ground_truth": null,
+          "predicted_url": "https://intranet.corp/finance/corporate-credit-card-management.html",
+          "confidence": 0.5998,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 1.82
+        },
+        {
+          "case_id": "CASE_ETH_01",
+          "broken_url": "https://example.com/ethics/whistleblower-v2019.aspx",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.6862,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.91
+        },
+        {
+          "case_id": "CASE_ETH_02",
+          "broken_url": "https://httpbin.org/status/404",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "confidence": 0.633,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.6
+        },
+        {
+          "case_id": "CASE_ETH_03",
+          "broken_url": "https://httpbin.org/status/500",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "confidence": 0.638,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.63
+        },
+        {
+          "case_id": "CASE_ETH_04",
+          "broken_url": "https://invalid-non-existent-subdomain-4092.corp.local/board",
+          "ground_truth": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "predicted_url": "https://intranet.corp/compliance/conflict-of-interest-disclosure-form.html",
+          "confidence": 0.5906,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": true,
+          "is_top3": true,
+          "latency_ms": 1.53
+        },
+        {
+          "case_id": "CASE_ETH_05",
+          "broken_url": "https://example.com/forms/internal/grievance-2021.doc",
+          "ground_truth": "https://intranet.corp/ethics/code-of-conduct-and-integrity-charter.html",
+          "predicted_url": "https://intranet.corp/security/identity-and-access-management-standard.html",
+          "confidence": 0.6017,
+          "decision": "HUMAN_REVIEW",
+          "is_top1": false,
+          "is_top3": false,
+          "latency_ms": 1.82
+        }
+      ]
+    }
+  }
+}
