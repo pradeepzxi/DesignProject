@@ -27,6 +27,28 @@ DEFAULT_WEIGHTS = {
 }
 
 
+class ActiveRemediationAlgorithmState:
+    _active: str = "EXISTING_DEFAULT"
+    _overridden: bool = False
+
+    @classmethod
+    def get_active(cls) -> str:
+        return cls._active
+
+    @classmethod
+    def is_overridden(cls) -> bool:
+        return cls._overridden
+
+    @classmethod
+    def set_active(cls, algo_name: str, enable: bool = True):
+        if not enable or algo_name == "EXISTING_DEFAULT":
+            cls._active = "EXISTING_DEFAULT"
+            cls._overridden = False
+        else:
+            cls._active = algo_name
+            cls._overridden = True
+
+
 class HybridCandidateRankingService(CandidateRankingService):
     def __init__(self, weights: Optional[Dict[str, float]] = None):
         self.weights = weights or dict(DEFAULT_WEIGHTS)
@@ -99,6 +121,58 @@ class HybridCandidateRankingService(CandidateRankingService):
         disabled_features: Optional[List[str]] = None,
     ) -> List[Dict[str, Any]]:
         """Evaluate features, rank candidates, and produce explainable recommendations."""
+        # Check if production remediation is explicitly configured to use an alternate algorithm
+        if ActiveRemediationAlgorithmState.is_overridden() and not disabled_features:
+            active_algo = ActiveRemediationAlgorithmState.get_active()
+            try:
+                from backend.app.services.ranking import get_ranker
+                ranker = get_ranker(active_algo)
+                raw_cands = [
+                    {
+                        "candidate_url": c.candidate_url,
+                        "title": c.page_title or c.metadata.get("title", ""),
+                        "snippet": c.snippet or "",
+                        "content_text": c.metadata.get("content_text", ""),
+                        "domain": c.metadata.get("domain", ""),
+                        "source": c.source,
+                        "http_status": c.http_status,
+                        "is_accessible": c.is_accessible,
+                    }
+                    for c in candidates
+                ]
+                ranked_raw = ranker.rank_candidates(
+                    query_context={
+                        "broken_url": broken_url,
+                        "document_title": context.get("document_title", ""),
+                        "section_heading": context.get("section_heading", ""),
+                        "anchor_text": context.get("anchor_text", ""),
+                        "surrounding_text": context.get("surrounding_text", ""),
+                        "keywords": context.get("keywords", []),
+                    },
+                    candidates=raw_cands,
+                )
+                results = []
+                for r in ranked_raw:
+                    score = r["score"]
+                    results.append({
+                        "rank": r["rank"],
+                        "candidate_url": r["candidate_url"],
+                        "overall_score": score,
+                        "confidence_score": score,
+                        "features": r.get("features", {"score": score}),
+                        "explanation": f"Ranked #{r['rank']} by {ranker.algorithm_name} with score {score:.3f}.",
+                        "title": r.get("title", ""),
+                        "snippet": r.get("snippet", ""),
+                        "content_text": r.get("content_text", ""),
+                        "domain": r.get("domain", ""),
+                        "source": r.get("source", "INTRANET"),
+                        "http_status": 200,
+                        "is_accessible": True,
+                    })
+                return results
+            except Exception as e:
+                logger.error(f"Failed ranking via configured active algorithm {active_algo}: {e}")
+
         weights = dict(custom_weights or self.weights)
         if disabled_features:
             for feat in disabled_features:
@@ -161,7 +235,9 @@ class HybridCandidateRankingService(CandidateRankingService):
                 "source": cand.source_type,
                 "features": features,
                 "overall_score": overall,
+                "score": overall,
                 "rank": rank,
+                "algorithm": "Existing Application Algorithm",
                 "explanation": explanation,
                 "http_status": cand.http_status,
                 "is_accessible": cand.is_accessible,

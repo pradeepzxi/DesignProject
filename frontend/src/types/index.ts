@@ -234,8 +234,11 @@ export interface ResearchSummary {
 
 export interface ComparativeBenchmark {
   timestamp: string;
+  best_algorithm?: string;
+  selection_reason?: string;
   comparison_table: Array<{
     method: string;
+    algorithm?: string;
     precision: number;
     recall: number;
     f1: number;
@@ -244,6 +247,9 @@ export interface ComparativeBenchmark {
     mrr: number;
     repair_precision: number;
     repair_rate: number;
+    false_repair_rate?: number;
+    latency_ms?: number;
   }>;
+  case_level_comparison?: Record<string, any>;
   runs: Record<string, any>;
 }

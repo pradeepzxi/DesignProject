@@ -200,10 +200,14 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate, onOpen
         >
           <span className="text-[10px] text-gray-400 uppercase font-mono block">Top-1 Accuracy</span>
           <span className="text-2xl font-bold text-emerald-400 font-mono">
-            {researchSummary ? `${(researchSummary.scientific_metrics.top1_accuracy * 100).toFixed(1)}%` : '68.3%'}
+            {researchSummary?.scientific_metrics?.top1_accuracy != null
+              ? `${(researchSummary.scientific_metrics.top1_accuracy * 100).toFixed(1)}%`
+              : '—'}
           </span>
           <span className="text-[11px] text-emerald-300 mt-1 block">
-            Top-3: {researchSummary ? `${(researchSummary.scientific_metrics.top3_accuracy * 100).toFixed(1)}%` : '85.0%'}
+            Top-3: {researchSummary?.scientific_metrics?.top3_accuracy != null
+              ? `${(researchSummary.scientific_metrics.top3_accuracy * 100).toFixed(1)}%`
+              : '—'}
           </span>
         </div>
 
@@ -212,7 +216,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate, onOpen
           className="p-4 rounded-xl border border-amber-500/20 bg-amber-500/10 cursor-pointer hover:border-amber-500/40 transition-all"
         >
           <span className="text-[10px] text-gray-400 uppercase font-mono block">Review Queue</span>
-          <span className="text-2xl font-bold text-amber-400 font-mono">{reviewCount || 18}</span>
+          <span className="text-2xl font-bold text-amber-400 font-mono">{reviewCount ?? '—'}</span>
           <span className="text-[11px] text-amber-300 mt-1 block">Uncertain Triage</span>
         </div>
 
@@ -222,7 +226,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onNavigate, onOpen
         >
           <span className="text-[10px] text-gray-400 uppercase font-mono block">Repair Success</span>
           <span className="text-2xl font-bold text-teal-300 font-mono">
-            {remStats ? `${remStats.success_rate}%` : '100%'}
+            {remStats ? `${remStats.success_rate}%` : '—'}
           </span>
           <span className="text-[11px] text-teal-400 mt-1 block">Verified Target Links</span>
         </div>

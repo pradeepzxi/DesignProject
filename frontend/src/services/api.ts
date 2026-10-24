@@ -216,12 +216,70 @@ export const api = {
   },
 
   runComparativeBenchmark: (): Promise<ComparativeBenchmark> => {
-    return fetchJson<ComparativeBenchmark>('/experiments/compare');
+    return fetchJson<ComparativeBenchmark>('/experiments/comparison?rerun=true', {
+      method: 'POST',
+    });
+  },
+
+  getExperimentComparison: (): Promise<ComparativeBenchmark> => {
+    return fetchJson<ComparativeBenchmark>('/experiments/comparison');
+  },
+
+  getExperimentResults: (algorithm?: string): Promise<ExperimentRunItem[]> => {
+    const qs = algorithm ? `/${algorithm}` : '';
+    return fetchJson<ExperimentRunItem[]>(`/experiments/results${qs}`);
+  },
+
+  getCaseResult: (caseId: string): Promise<any> => {
+    return fetchJson<any>(`/experiments/case/${caseId}`);
+  },
+
+  runAblationStudy: (): Promise<{
+    timestamp: string;
+    baseline_top1: number;
+    ablation_results: Array<{
+      configuration: string;
+      disabled_features: string[];
+      top1_accuracy: number;
+      top3_accuracy: number;
+      mrr: number;
+      performance_delta: string;
+    }>;
+  }> => {
+    return fetchJson<any>('/experiments/ablation', {
+      method: 'POST',
+    });
   },
 
   // Prompt 2: Research Summary & Exports
   getResearchSummary: (): Promise<ResearchSummary> => {
     return fetchJson<ResearchSummary>('/research/summary');
+  },
+
+  getActiveAlgorithm: (): Promise<{
+    active_algorithm: string;
+    is_overridden: boolean;
+    best_algorithm: string;
+    available_algorithms: Array<{ id: string; name: string; description: string }>;
+  }> => {
+    return fetchJson<any>('/experiments/active-algorithm');
+  },
+
+  setActiveAlgorithm: (algorithm: string, enable: boolean = true): Promise<{
+    success: boolean;
+    active_algorithm: string;
+    is_overridden: boolean;
+    message: string;
+  }> => {
+    return fetchJson<any>('/experiments/active-algorithm', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ algorithm, enable }),
+    });
+  },
+
+  getBenchmarkExportUrl: (format: 'json' | 'csv' = 'json'): string => {
+    return `${API_BASE_URL}/experiments/export?format=${format}`;
   },
 
   getExportUrl: (format: 'json' | 'csv' = 'json', datasetType: string = 'all'): string => {

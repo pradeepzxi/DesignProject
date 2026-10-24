@@ -42,6 +42,12 @@ class ReviewRepository:
             query = query.filter(ReviewQueueItem.review_status == status)
         return query.order_by(ReviewQueueItem.created_at.desc()).offset(skip).limit(limit).all()
 
+    def count(self, status: Optional[str] = None) -> int:
+        query = self.db.query(ReviewQueueItem)
+        if status:
+            query = query.filter(ReviewQueueItem.review_status == status)
+        return query.count()
+
     def enqueue(
         self,
         link_id: str,
